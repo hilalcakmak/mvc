@@ -1,0 +1,87 @@
+﻿@model IEnumerable<eticaret.Models.Urun>
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Ürün Listesi";
+    var currentFilter = ViewBag.SearchString as string;
+    var currentKategori = ViewBag.SelectedKategori as int?;
+    var kategoriList = ViewBag.KategoriList as List<SelectListItem>;
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <form asp-action="Index" method="get" class="row g-2 align-items-end">
+                <div class="col-md-5">
+                    <input type="text" name="searchString" value="@currentFilter" class="form-control" placeholder="Ürün adı veya satıcı ara..." />
+                </div>
+                <div class="col-md-4">
+                    @if (kategoriList != null)
+                    {
+                        <select name="kategoriNo" class="form-select">
+                            <option value="">Tüm Kategoriler</option>
+                            @foreach (var item in kategoriList)
+                            {
+                                var selected = (ViewBag.SelectedKategori != null && item.Value == ViewBag.SelectedKategori.ToString()) ? "selected" : "";
+                                @:<option value="@item.Value" @selected>@item.Text</option>
+                            }
+                        </select>
+                    }
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-outline-primary w-100">Filtrele</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Create" class="btn btn-success">Yeni Ürün Ekle</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Kategori</th>
+                    <th>Fiyat</th>
+                    <th>Satıcı</th>
+                    <th>Renk</th>
+                    <th>Bedenler</th>
+                    <th>Resim</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UrunAdi</td>
+                        <td>@item.Kategori?.KategoriAdi</td>
+                        <td>@item.Fiyat.ToString("C")</td>
+                        <td>@(item.Satici ?? "-")</td>
+                        <td>@(item.Renk ?? "-")</td>
+                        <td>@(item.BedenSecenekleri ?? "-")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.ResimUrl))
+                            {
+                                <img src="~/@item.ResimUrl" alt="ürün görseli" style="height:40px;max-width:60px;object-fit:contain;" />
+                            }
+                            else
+                            {
+                                <span>-</span>
+                            }
+                        </td>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.UrunNo" class="btn btn-sm btn-primary me-1">Düzenle</a>
+                            <form asp-action="Delete" asp-route-id="@item.UrunNo" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

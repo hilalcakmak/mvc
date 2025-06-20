@@ -1,0 +1,46 @@
+﻿@model eticaret.Models.Musteri
+
+<form asp-action="Delete" asp-controller="Musteri" method="post" class="mt-4">
+    <input type="hidden" asp-for="MusteriNo" />
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="alert alert-danger mb-4 text-center fw-bold">
+                Bu müşteriyi silmek istediğinize emin misiniz?
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Ad"></label>
+                <input asp-for="Ad" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Soyad"></label>
+                <input asp-for="Soyad" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Parola"></label>
+                <input asp-for="Parola" class="form-control" type="password" readonly />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Telefon"></label>
+                <input asp-for="Telefon" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DogumTarihi"></label>
+                <input asp-for="DogumTarihi" class="form-control" type="date" readonly />
+            </div>
+            <div class="form-group mb-4">
+                <label asp-for="Cinsiyet"></label>
+                <input asp-for="Cinsiyet" class="form-control" readonly />
+            </div>
+            <div class="card-footer">
+                <center>
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <a asp-action="Index" class="btn btn-secondary ms-2">Vazgeç</a>
+                </center>
+            </div>
+        </div>
+    </div>
+</form>

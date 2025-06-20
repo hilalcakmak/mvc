@@ -1,0 +1,58 @@
+﻿@model eticaret.Models.Musteri
+
+<form asp-action="Edit" asp-controller="Musteri" method="post" class="mt-4">
+    <input type="hidden" asp-for="MusteriNo" />
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="form-group mb-3">
+                <label asp-for="Ad"></label>
+                <input asp-for="Ad" class="form-control" placeholder="Adınızı giriniz" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Soyad"></label>
+                <input asp-for="Soyad" class="form-control" placeholder="Soyadınızı giriniz" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" placeholder="E-posta adresinizi giriniz" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Parola"></label>
+                <input asp-for="Parola" class="form-control" placeholder="Parolanızı giriniz" />
+                <span asp-validation-for="Parola" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Telefon"></label>
+                <input asp-for="Telefon" class="form-control" placeholder="Telefon numaranızı giriniz" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DogumTarihi"></label>
+                <input asp-for="DogumTarihi" class="form-control" type="date" />
+                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-4">
+                <label asp-for="Cinsiyet"></label>
+                <select asp-for="Cinsiyet" class="form-select">
+                    <option value="">Seçiniz</option>
+                    <option value="Kadın">Kadın</option>
+                    <option value="Erkek">Erkek</option>
+                    <option value="Belirtmek istemiyorum">Belirtmek istemiyorum</option>
+                </select>
+                <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+            </div>
+            <div class="card-footer">
+                <center>
+                    <button type="submit" class="btn btn-warning">Güncelle</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
