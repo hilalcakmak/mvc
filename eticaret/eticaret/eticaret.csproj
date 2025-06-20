@@ -22,12 +22,14 @@
     <None Remove="Data\" />
     <None Remove="Views\Musteri\" />
     <None Remove="Views\Urun\" />
+    <None Remove="Views\Siparis\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Views\Musteri\" />
     <Folder Include="Views\Urun\" />
     <Folder Include="wwwroot\img\" />
+    <Folder Include="Views\Siparis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\1.jpeg" />
