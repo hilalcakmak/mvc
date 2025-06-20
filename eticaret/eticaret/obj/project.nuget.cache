@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zQjI3qc0LI6Qs4QulzY3eWg+rxy2evZrJc0LdOsTTihFqN2ZCvzW40i1R7dNW7iTA0V63Vu+UIthC6rvyhFvgA==",
+  "dgSpecHash": "Vr8+OKjHzjyw4mvAi3QrHn4MpqX7Vstzf9cGInRqjf1ELfSoAwmaucYj0cDlPlM351RaMzfDgMkJSnkn4pwzFw==",
   "success": true,
-  "projectFilePath": "/Users/a1-17/Desktop/eticaret/eticaret/eticaret.csproj",
+  "projectFilePath": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
   "expectedPackageFiles": [
     "/Users/a1-17/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/a1-17/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",

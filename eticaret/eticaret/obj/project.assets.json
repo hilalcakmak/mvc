@@ -2019,11 +2019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/a1-17/Desktop/eticaret/eticaret/eticaret.csproj",
+      "projectUniqueName": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
       "projectName": "eticaret",
-      "projectPath": "/Users/a1-17/Desktop/eticaret/eticaret/eticaret.csproj",
+      "projectPath": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
       "packagesPath": "/Users/a1-17/.nuget/packages/",
-      "outputPath": "/Users/a1-17/Desktop/eticaret/eticaret/obj/",
+      "outputPath": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/a1-17/.nuget/NuGet/NuGet.Config"
