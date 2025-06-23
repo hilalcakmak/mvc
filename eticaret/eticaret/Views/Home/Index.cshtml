@@ -1,9 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<eticaret.Models.Urun>
+@{
+    ViewData["Title"] = "Ana Sayfa";
 }
+<div class="container mt-4">
+    <!-- ÜRÜN KART GRIDİ -->
+    <div class="row g-4">
+        @foreach (var urun in Model)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <a href="@Url.Action("Detay", "Urun", new { id = urun.UrunNo })" class="text-decoration-none">
+                        <img src="@(string.IsNullOrEmpty(urun.ResimUrl) ? Url.Content("~/img/noimage.png") : Url.Content("~/" + urun.ResimUrl))"
+                             class="card-img-top rounded-top-4" alt="@urun.UrunAdi"
+                             style="height:220px;object-fit:cover;">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                    </a>
+                    <div class="card-body">
+                        <h6 class="card-title text-truncate mb-2">@urun.UrunAdi</h6>
+                        <div class="mb-1 small text-secondary">@urun.Kategori?.KategoriAdi</div>
+                        <div class="mb-2 fw-bold" style="font-size: 1.1rem;">
+                            @urun.Fiyat.ToString("C")
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark">@urun.Satici</span>
+                            @if (!string.IsNullOrEmpty(urun.Renk))
+                            {
+                                <span class="badge bg-light text-dark">@urun.Renk</span>
+                            }
+                        </div>
+                        @if (!string.IsNullOrEmpty(urun.BedenSecenekleri))
+                        {
+                            <div class="mb-1 small text-muted">Bedenler: @urun.BedenSecenekleri</div>
+                        }
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button class="btn btn-outline-warning btn-sm">Sepete Ekle</button>
+                            <button class="btn btn-outline-secondary btn-sm">Favori</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @* Eğer hiç ürün yoksa mesaj *@
+        <!--if (!Model.Any())
+        {
+        <div class="col-12">
+            <div class="alert alert-warning text-center mt-4">
+                Aradığınız kriterde ürün bulunamadı.
+            </div>
+        </div>
+        }-->
+    </div>
 </div>
-

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<eticaret.Models.SiparisDetay>
+
+@{
+    ViewData["Title"] = "Sipariş Detayları";
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h2>Sipariş Detay Listesi</h2>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Create" class="btn btn-success">Yeni Sipariş Detayı Ekle</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-hover text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Sipariş No</th>
+                <th>Ürün Görseli</th>
+                <th>Ürün</th>
+                <th>Adet</th>
+                <th>Beden</th>
+                <th>Birim Fiyat</th>
+                <th>Teslim Durumu</th>
+                <th>Teslim Tarihi</th>
+                <th>Teslim Alan</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.SiparisNo</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.Urun?.ResimUrl))
+                        {
+                            <img src="~/@item.Urun.ResimUrl" alt="Ürün Görseli" style="max-width: 70px; max-height: 70px;" />
+                        }
+                        else
+                        {
+                            @:-
+                        }
+                    </td>
+
+                    <td>@(item.Urun?.UrunAdi ?? "-")</td>
+                    <td>@item.Adet</td>
+                    <td>@(string.IsNullOrEmpty(item.Beden) ? "-" : item.Beden)</td>
+                    <td>@item.BirimFiyat.ToString("C2")</td>
+                    <td>@(item.TeslimDurumu ?? "-")</td>
+                    <td>@(item.TeslimTarihi?.ToString("dd.MM.yyyy") ?? "-")</td>
+                    <td>@(item.TeslimAlan ?? "-")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DetayNo" class="btn btn-sm btn-primary me-1">Düzenle</a>
+                        <form asp-action="Delete" asp-route-id="@item.DetayNo" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj": {}
+    "/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/eticaret.csproj": {}
   },
   "projects": {
-    "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj": {
+    "/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/eticaret.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
+        "projectUniqueName": "/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
         "projectName": "eticaret",
-        "projectPath": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
-        "packagesPath": "/Users/a1-17/.nuget/packages/",
-        "outputPath": "/Users/a1-17/Desktop/mvc/eticaret/eticaret/obj/",
+        "projectPath": "/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
+        "packagesPath": "/Users/hilalcakmak/.nuget/packages/",
+        "outputPath": "/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/a1-17/.nuget/NuGet/NuGet.Config"
+          "/Users/hilalcakmak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "/usr/local/share/dotnet/sdk/7.0.317/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },

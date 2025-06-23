@@ -2,24 +2,22 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="eticaret/Views/Urun/Index.cshtml">
     <Files>
-      <File FileName="eticaret/Controllers/MusteriController.cs" Line="98" Column="1" />
+      <File FileName="eticaret/Controllers/MusteriController.cs" />
       <File FileName="eticaret/Models/SiparisDetay.cs" />
-      <File FileName="eticaret/Models/Musteri.cs" Line="32" Column="45" />
-      <File FileName="eticaret/Views/Musteri/Edit.cshtml" Line="16" Column="19" />
-      <File FileName="eticaret/Views/Musteri/Delete.cshtml" Line="47" Column="1" />
+      <File FileName="eticaret/Models/Musteri.cs" />
+      <File FileName="eticaret/Views/Musteri/Edit.cshtml" />
       <File FileName="eticaret/Views/Urun/Index.cshtml" Line="1" Column="1" />
-      <File FileName="eticaret/Controllers/UrunController.cs" Line="72" Column="10" />
-      <File FileName="eticaret/Views/Urun/Create.cshtml" Line="59" Column="1" />
-      <File FileName="eticaret/Models/Urun.cs" Line="38" Column="1" />
+      <File FileName="eticaret/Controllers/UrunController.cs" />
+      <File FileName="eticaret/Views/Urun/Create.cshtml" />
+      <File FileName="eticaret/Models/Urun.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="eticaret" expanded="True">
-            <Node name="eticaret" expanded="True">
+            <Node name="eticaret">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
@@ -36,6 +34,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.eticaret PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>

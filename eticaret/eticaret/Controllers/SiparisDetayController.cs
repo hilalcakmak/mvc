@@ -10,23 +10,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eticaret.Controllers
 {
-    public class SiparisController : Controller
+    public class SiparisDetayController : Controller
     {
         private readonly AppDbContext _context;
-        public SiparisController(AppDbContext context)
+        public SiparisDetayController(AppDbContext context)
         {
             _context = context;
         }
-
-        [HttpGet] // yazmasak da default get gelir
         public IActionResult Index()
         {
-            var listele = _context.Siparisler
-                  .Include(s => s.Musteri) // bak burası önemli
-                  .ToList();
-            return View(listele);
+            var detaylar = _context.SiparisDetaylari
+                .Include(sd => sd.Siparis)   // Sipariş ile ilişkili
+                .Include(sd => sd.Urun)      // Ürün ile ilişkili
+                .ToList();
+            return View(detaylar);
         }
-
     }
 }
 

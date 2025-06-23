@@ -1,0 +1,103 @@
+﻿@model List<eticaret.Models.Kategori>
+@{
+    var kategoriler = Model ?? new List<eticaret.Models.Kategori>();
+
+    // Ana kategorilere göre gruplama
+    var anaKategoriler = new Dictionary<string, List<string>>
+{
+        { "Elektronik", new List<string> { "Bilgisayar & Tablet", "Cep Telefonu", "Elektronik" } },
+        { "Giyim", new List<string> { "Kadin Giyim", "Erkek Giyim", "Çocuk Giyim", "Giyim" } },
+        { "Ev & Yasam", new List<string> { "Mobilya", "Beyaz Esya", "Ev Dekorasyon", "Mutfak Gereçleri", "Anne & Bebek" , "Ev & Yasam" } },
+        { "Taki & Aksesuar", new List<string> { "Taki & Aksesuar", "Saat & Gözlük" } },
+    };
+
+    // Gruplanan alt kategorilerin isimleri (tekrar ana kategori gibi çıkmasınlar diye)
+    var altKategoriler = anaKategoriler.SelectMany(x => x.Value).ToList();
+
+    // Tek başına kalan kategoriler (ne ana kategori, ne de alt kategori olarak geçenler)
+    var digerKategoriler = kategoriler
+        .Where(k => !anaKategoriler.Keys.Contains(k.KategoriAdi) && !altKategoriler.Contains(k.KategoriAdi))
+        .ToList();
+}
+<nav class="navbar navbar-light bg-white shadow-sm"
+     style="height:64px; border-bottom:none; margin-top:18px; padding-top:6px; ">
+
+    <div class="container-fluid px-4 d-flex align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="/" style="margin-right:24px;">
+            <img src="~/img/logo.svg" alt="VitrinGo" height="40" style="margin-right:8px;">
+        </a>
+        <!-- Arama Kutusu -->
+        <form class="d-flex flex-grow-1" method="get" action="/Urun/Index" style="max-width:560px;">
+            <input class="form-control me-2 rounded-pill border-2" type="search" placeholder="Ürün, kategori veya marka ara" aria-label="Search" name="searchString" style="font-size: 1.1rem;">
+            <button class="btn btn-outline-warning rounded-pill px-4" type="submit">
+                <i class="bi bi-search"></i> Ara
+            </button>
+        </form>
+        <!-- Spacer -->
+        <div class="flex-grow-1"></div>
+        <!-- Hesabım -->
+        <div class="d-flex align-items-center" style="margin-left:24px;">
+            <a href="#" class="btn" style="background: linear-gradient(90deg,#ff6400,#ffce00,#20c997); color:white; font-weight:bold; border-radius:16px; margin-right:16px; min-width:120px;">
+                <i class="bi bi-person"></i> Hesabım
+            </a>
+            <!-- Sepet -->
+            <a href="/Sepet" class="btn btn-light border-0" style="border-radius:12px;">
+                <i class="bi bi-cart4 fs-4"></i> <span class="fw-bold">Sepetim</span>
+                <span class="badge bg-secondary ms-2">0</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 px-0" style="border-radius: 0; margin: 0;">
+    <div class="container-fluid px-3">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-0">
+                @* Ana kategori ve alt kategoriler için dropdown *@
+                @foreach (var anaKategori in anaKategoriler)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-@anaKategori.Key"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @anaKategori.Key
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown-@anaKategori.Key">
+                            @foreach (var altKategoriAdi in anaKategori.Value)
+                            {
+                                var altKategori = kategoriler.FirstOrDefault(k => k.KategoriAdi == altKategoriAdi);
+                                if (altKategori != null)
+                                {
+                                    <li>
+                                        <a class="dropdown-item"
+                                           asp-controller="Urun"
+                                           asp-action="Index"
+                                           asp-route-kategoriNo="@altKategori.KategoriNo">
+                                            @altKategori.KategoriAdi
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                }
+                @* Geri kalan kategoriler direkt olarak gösterilsin *@
+                @foreach (var kategori in digerKategoriler)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           asp-controller="Urun"
+                           asp-action="Index"
+                           asp-route-kategoriNo="@kategori.KategoriNo">
+                            @kategori.KategoriAdi
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

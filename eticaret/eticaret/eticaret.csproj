@@ -23,6 +23,10 @@
     <None Remove="Views\Musteri\" />
     <None Remove="Views\Urun\" />
     <None Remove="Views\Siparis\" />
+    <None Remove="Views\SiparisDetay\" />
+    <None Remove="Views\Kategori\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\KategoriMenu\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -30,6 +34,10 @@
     <Folder Include="Views\Urun\" />
     <Folder Include="wwwroot\img\" />
     <Folder Include="Views\Siparis\" />
+    <Folder Include="Views\SiparisDetay\" />
+    <Folder Include="Views\Kategori\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\KategoriMenu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\1.jpeg" />
