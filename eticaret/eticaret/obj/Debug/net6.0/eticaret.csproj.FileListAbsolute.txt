@@ -202,3 +202,4 @@
 /Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/obj/Debug/net6.0/eticaret.pdb
 /Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/obj/Debug/net6.0/eticaret.genruntimeconfig.cache
 /Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/obj/Debug/net6.0/ref/eticaret.dll
+/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/bin/Debug/net6.0/Newtonsoft.Json.dll

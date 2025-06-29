@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<h2 class="mb-4">Giriş Yap</h2>
+
+<form asp-action="Login" method="post" class="row g-3" autocomplete="off">
+    <div class="col-md-6">
+        <label class="form-label" for="Email">E-posta</label>
+        <input name="Email" class="form-control" type="email" required />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label" for="Parola">Parola</label>
+        <input name="Parola" class="form-control" type="password" required />
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success px-5">Giriş Yap</button>
+    </div>
+    <div class="col-12">
+        @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div class="alert alert-danger mt-2">@modelError.ErrorMessage</div>
+        }
+    </div>
+</form>

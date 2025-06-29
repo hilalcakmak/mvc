@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yOEzbYLEY5JbGMpZ8bVpppf7fqRNR4ppoXZFYZiV+CRZa2SKw+o1WF6vssbjCDnlKjnB0Ql62cavdC3ta8GFSw==",
+  "dgSpecHash": "O5o0HBWkcxV5xkT8CIGrcRlswo1WyWTl5KkwVaA6Bw6uHgZ4Q1jqo+6w0EHdp+XcEZnpw3vwy/cW1y3F9RfJqg==",
   "success": true,
   "projectFilePath": "/Users/hilalcakmak/Desktop/mvc/eticaret/eticaret/eticaret.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,7 @@
     "/Users/hilalcakmak/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/hilalcakmak/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/Users/hilalcakmak/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/hilalcakmak/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/hilalcakmak/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/hilalcakmak/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "/Users/hilalcakmak/.nuget/packages/system.diagnostics.diagnosticsource/6.0.1/system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",

@@ -1,4 +1,9 @@
-﻿@model List<eticaret.Models.Kategori>
+﻿@{
+    var kullaniciEmail = Context.Session.GetString("KullaniciEmail");
+    var kullaniciAd = Context.Session.GetString("KullaniciAd");
+    var isAdmin = Context.Session.GetString("Admin") == "true";
+}
+@model List<eticaret.Models.Kategori>
 @{
     var kategoriler = Model ?? new List<eticaret.Models.Kategori>();
 
@@ -38,9 +43,30 @@
         <div class="flex-grow-1"></div>
         <!-- Hesabım -->
         <div class="d-flex align-items-center" style="margin-left:24px;">
-            <a href="#" class="btn" style="background: linear-gradient(90deg,#ff6400,#ffce00,#20c997); color:white; font-weight:bold; border-radius:16px; margin-right:16px; min-width:120px;">
-                <i class="bi bi-person"></i> Hesabım
-            </a>
+            @if (isAdmin)
+            {
+                <a href="#" class="btn btn-outline-dark me-2" style="border-radius: 16px;">Admin: <b>admin</b></a>
+                <a href="/Account/Logout" class="btn btn-danger" style="border-radius: 16px; min-width: 120px;">
+                    <i class="bi bi-box-arrow-right"></i> Çıkış
+                </a>
+            }
+            else if (!string.IsNullOrEmpty(kullaniciEmail))
+            {
+                <a href="/Account/Profile" class="btn btn-outline-success me-2" style="border-radius: 16px; min-width:120px;">
+                    <i class="bi bi-person"></i> @kullaniciAd
+                </a>
+                <a href="/Account/Logout" class="btn btn-danger" style="border-radius: 16px; min-width: 120px;">
+                    <i class="bi bi-box-arrow-right"></i> Çıkış
+                </a>
+
+            }
+            else
+            {
+                <a href="/Account" class="btn" style="background: linear-gradient(90deg,#ff6400,#ffce00,#20c997); color:white; font-weight:bold; border-radius:16px; margin-right:16px; min-width:120px;">
+                    <i class="bi bi-person"></i> Hesabım
+                </a>
+            }
+
             <!-- Sepet -->
             <a href="/Sepet" class="btn btn-light border-0" style="border-radius:12px;">
                 <i class="bi bi-cart4 fs-4"></i> <span class="fw-bold">Sepetim</span>

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Admin Girişi Yap";
+}
+
+<h2 class="mb-4">Admin Girişi Yap</h2>
+<form asp-action="AdminLogin" method="post" class="row g-3" autocomplete="off">
+    <div class="col-md-6">
+        <label class="form-label" for="Email">Admin E-posta</label>
+        <input name="Email" class="form-control" type="email" required />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label" for="Parola">Parola</label>
+        <input name="Parola" class="form-control" type="password" required />
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-danger px-5">Admin Girişi Yap</button>
+    </div>
+    <div class="col-12">
+        @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div class="alert alert-danger mt-2">@modelError.ErrorMessage</div>
+        }
+    </div>
+</form>

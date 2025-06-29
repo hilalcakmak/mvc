@@ -1,0 +1,69 @@
+﻿@model eticaret.Models.Musteri
+
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<h2 class="mb-4">Profilim</h2>
+
+@if (ViewBag.Basarili != null)
+{
+    <div class="alert alert-success">Profil başarıyla güncellendi!</div>
+}
+
+<form asp-action="Profile" method="post" class="row g-3" autocomplete="off">
+    <div class="col-md-6">
+        <label asp-for="Ad" class="form-label"></label>
+        <input asp-for="Ad" class="form-control" />
+        <span asp-validation-for="Ad" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Soyad" class="form-label"></label>
+        <input asp-for="Soyad" class="form-control" />
+        <span asp-validation-for="Soyad" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Telefon" class="form-label"></label>
+        <input asp-for="Telefon" class="form-control" />
+        <span asp-validation-for="Telefon" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="DogumTarihi" class="form-label"></label>
+        <input asp-for="DogumTarihi" type="date" class="form-control" />
+        <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Cinsiyet" class="form-label"></label>
+        <select asp-for="Cinsiyet" class="form-select">
+            <option value="">Seçiniz</option>
+            <option>Kadın</option>
+            <option>Erkek</option>
+            <option>Belirtmek istemiyorum</option>
+        </select>
+        <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+    </div>
+
+    <h5 class="mt-4">Şifre Değiştir</h5>
+    <div class="col-md-6">
+        <label class="form-label">Yeni Parola</label>
+        <input name="yeniParola" type="password" class="form-control" />
+        @Html.ValidationMessage("yeniParola", "", new { @class = "text-danger" })
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Yeni Parola (Tekrar)</label>
+        <input name="yeniParolaTekrar" type="password" class="form-control" />
+        @Html.ValidationMessage("yeniParolaTekrar", "", new { @class = "text-danger" })
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-warning px-5">Profili Kaydet</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

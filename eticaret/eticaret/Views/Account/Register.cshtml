@@ -1,0 +1,57 @@
+﻿@model eticaret.Models.Musteri
+
+@{
+    ViewData["Title"] = "Üye Ol";
+}
+
+<h2 class="mb-4">Üye Ol</h2>
+
+<form asp-action="Register" method="post" class="row g-3" autocomplete="off">
+    <div class="col-md-6">
+        <label asp-for="Ad" class="form-label"></label>
+        <input asp-for="Ad" class="form-control" />
+        <span asp-validation-for="Ad" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Soyad" class="form-label"></label>
+        <input asp-for="Soyad" class="form-control" />
+        <span asp-validation-for="Soyad" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Parola" class="form-label"></label>
+        <input asp-for="Parola" type="password" class="form-control" />
+        <span asp-validation-for="Parola" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Telefon" class="form-label"></label>
+        <input asp-for="Telefon" class="form-control" />
+        <span asp-validation-for="Telefon" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="DogumTarihi" class="form-label"></label>
+        <input asp-for="DogumTarihi" type="date" class="form-control" />
+        <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Cinsiyet" class="form-label"></label>
+        <select asp-for="Cinsiyet" class="form-select">
+            <option value="">Seçiniz</option>
+            <option>Kadın</option>
+            <option>Erkek</option>
+            <option>Belirtmek istemiyorum</option>
+        </select>
+        <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-warning px-5">Üye Ol</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

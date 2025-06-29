@@ -1,40 +1,66 @@
 ﻿<Properties StartupConfiguration="{327F8C0B-D774-46BB-94F3-64492EE99C94}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.eticaret PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="eticaret/Views/Urun/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="eticaret/Views/Shared/Components/KategoriMenu/Default.cshtml">
     <Files>
       <File FileName="eticaret/Controllers/MusteriController.cs" />
       <File FileName="eticaret/Models/SiparisDetay.cs" />
       <File FileName="eticaret/Models/Musteri.cs" />
       <File FileName="eticaret/Views/Musteri/Edit.cshtml" />
-      <File FileName="eticaret/Views/Urun/Index.cshtml" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Urun/Index.cshtml" />
       <File FileName="eticaret/Controllers/UrunController.cs" />
       <File FileName="eticaret/Views/Urun/Create.cshtml" />
       <File FileName="eticaret/Models/Urun.cs" />
+      <File FileName="eticaret/appsettings.json" />
+      <File FileName="eticaret/Models/Siparis.cs" />
+      <File FileName="eticaret/Program.cs" />
+      <File FileName="eticaret/Views/Siparis/Index.cshtml" />
+      <File FileName="eticaret/Controllers/SiparisController.cs" />
+      <File FileName="eticaret/Views/SiparisDetay/Index.cshtml" />
+      <File FileName="eticaret/Controllers/SiparisDetayController.cs" />
+      <File FileName="eticaret/Views/Musteri/Index.cshtml" />
+      <File FileName="eticaret/Views/_ViewImports.cshtml" />
+      <File FileName="eticaret/Views/_ViewStart.cshtml" />
+      <File FileName="eticaret/Controllers/KategoriController.cs" />
+      <File FileName="eticaret/Controllers/HomeController.cs" />
+      <File FileName="eticaret/Views/Shared/_Layout.cshtml" />
+      <File FileName="eticaret/Views/Shared/ViewComponent.cs" />
+      <File FileName="eticaret/Views/Shared/Components/KategoriMenu/Default.cshtml" Line="83" Column="12" />
+      <File FileName="eticaret/wwwroot/css/site.css" />
+      <File FileName="eticaret/Views/Home/Index.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="eticaret" expanded="True">
-            <Node name="eticaret">
-              <Node name="Dependencies" expanded="True" />
+          <Node name="eticaret">
+            <Node name="eticaret" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Musteri" expanded="True" />
-                <Node name="Urun" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="Components" expanded="True">
+                    <Node name="KategoriMenu" expanded="True">
+                      <Node name="Default.cshtml" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
               </Node>
-              <Node name="wwwroot" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="lib" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.eticaret PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
 </Properties>
