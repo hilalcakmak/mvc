@@ -30,6 +30,7 @@
     <None Remove="Views\Shared\Components\KategoriMenu\" />
     <None Remove="Views\Account\" />
     <None Remove="Helpers\" />
+    <None Remove="Views\Sepet\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -43,6 +44,7 @@
     <Folder Include="Views\Shared\Components\KategoriMenu\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Views\Sepet\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\1.jpeg" />

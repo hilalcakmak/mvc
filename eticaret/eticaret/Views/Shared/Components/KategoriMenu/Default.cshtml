@@ -67,11 +67,20 @@
                 </a>
             }
 
-            <!-- Sepet -->
+            @{
+                var sepet = Context.Session.GetObject<List<Tuple<int, int>>>("cart") ?? new List<Tuple<int, int>>();
+                var sepetAdet = sepet.Sum(x => x.Item2);
+            }
             <a href="/Sepet" class="btn btn-light border-0" style="border-radius:12px;">
                 <i class="bi bi-cart4 fs-4"></i> <span class="fw-bold">Sepetim</span>
-                <span class="badge bg-secondary ms-2">0</span>
+                <span class="badge bg-secondary ms-2">@sepetAdet</span>
+
             </a>
+            <a href="/Siparis/Siparislerim" class="btn btn-light border-0" style="border-radius:12px;">
+                <span class="fw-bold">Siparişlerim</span>
+            </a>
+
+
         </div>
     </div>
 </nav>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Sepetim";
+}
+
+<h2>Sepetim</h2>
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">Sepetinizde ürün yok.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Adet</th>
+                <th>Birim Fiyat</th>
+                <th>Toplam</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Urun?.UrunAdi</td>
+                    <td>@item.Adet</td>
+                    <td>@item.Urun.Fiyat.ToString("C")</td>
+                    <td>@((item.Urun.Fiyat * item.Adet).ToString("C"))</td>
+
+                    <td>
+                        <a asp-action="RemoveFromCart" asp-route-id="@item.Urun?.UrunNo" class="btn btn-sm btn-danger">Kaldır</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <form asp-action="SiparisVer" method="post">
+        <button type="submit" class="btn btn-success">Siparişi Tamamla</button>
+    </form>
+}
