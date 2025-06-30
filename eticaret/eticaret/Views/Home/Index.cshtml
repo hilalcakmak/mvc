@@ -1,57 +1,77 @@
-﻿@model IEnumerable<eticaret.Models.Urun>
-@{
-    ViewData["Title"] = "Ana Sayfa";
+﻿@{
+    var isAdmin = Context.Session.GetString("Admin") == "true";
 }
-<div class="container mt-4">
-    <!-- ÜRÜN KART GRIDİ -->
-    <div class="row g-4">
-        @foreach (var urun in Model)
-        {
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                    <a href="@Url.Action("Detay", "Urun", new { id = urun.UrunNo })" class="text-decoration-none">
-                        <img src="@(string.IsNullOrEmpty(urun.ResimUrl) ? Url.Content("~/img/noimage.png") : Url.Content("~/" + urun.ResimUrl))"
-                             class="card-img-top rounded-top-4" alt="@urun.UrunAdi"
-                             style="height:220px;object-fit:cover;">
-
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-title text-truncate mb-2">@urun.UrunAdi</h6>
-                        <div class="mb-1 small text-secondary">@urun.Kategori?.KategoriAdi</div>
-                        <div class="mb-2 fw-bold" style="font-size: 1.1rem;">
-                            @urun.Fiyat.ToString("C")
-                        </div>
-                        <div class="mb-2">
-                            <span class="badge bg-light text-dark">@urun.Satici</span>
-                            @if (!string.IsNullOrEmpty(urun.Renk))
+@if (isAdmin)
+{
+    <!-- ADMIN HOŞGELDİN -->
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height:60vh; background: linear-gradient(120deg,#232526 0,#434343 100%); border-radius:36px;">
+        <h1 class="text-white fw-bold mb-3" style="font-size:3rem;">Hoş geldiniz!</h1>
+        <p class="text-light fs-5">Yönetim panelinden müşteri, ürün ve kategorileri dilediğiniz gibi yönetin.</p>
+    </div>
+}
+else
+{
+    <!-- MÜŞTERİ VE GİRİŞSİZLER İÇİN ÜRÜN KARTLARI -->
+    <div class="container mt-4">
+        <div class="row g-4">
+            @foreach (var urun in Model)
+            {
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 rounded-4">
+                        <a href="@Url.Action("Detay", "Urun", new { id = urun.UrunNo })" class="text-decoration-none">
+                            <img src="@(string.IsNullOrEmpty(urun.ResimUrl) ? Url.Content("~/img/noimage.png") : Url.Content("~/" + urun.ResimUrl))"
+                                 class="card-img-top rounded-top-4" alt="@urun.UrunAdi"
+                                 style="height:220px;object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate mb-2">@urun.UrunAdi</h6>
+                            <div class="mb-1 small text-secondary">@urun.Kategori?.KategoriAdi</div>
+                            <div class="mb-2 fw-bold" style="font-size: 1.1rem;">
+                                @urun.Fiyat.ToString("C")
+                            </div>
+                            <div class="mb-2">
+                                <span class="badge bg-light text-dark">@urun.Satici</span>
+                                @if (!string.IsNullOrEmpty(urun.Renk))
+                                {
+                                    <span class="badge bg-light text-dark">@urun.Renk</span>
+                                }
+                            </div>
+                            @if (!string.IsNullOrEmpty(urun.BedenSecenekleri))
                             {
-                                <span class="badge bg-light text-dark">@urun.Renk</span>
+                                <div class="mb-1 small text-muted">Bedenler: @urun.BedenSecenekleri</div>
                             }
                         </div>
-                        @if (!string.IsNullOrEmpty(urun.BedenSecenekleri))
-                        {
-                            <div class="mb-1 small text-muted">Bedenler: @urun.BedenSecenekleri</div>
-                        }
-                    </div>
-                    <div class="card-footer bg-white border-0 pb-3">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a asp-controller="Sepet" asp-action="AddToCart" asp-route-id="@urun.UrunNo" class="btn btn-outline-warning btn-sm">
-                                Sepete Ekle
-                            </a>
-                            <button class="btn btn-outline-secondary btn-sm">Favori</button>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a asp-controller="Sepet" asp-action="AddToCart" asp-route-id="@urun.UrunNo" class="btn btn-outline-warning btn-sm">
+                                    Sepete Ekle
+                                </a>
+                                @{
+                                    var favoriler = Context.Session.GetObject<List<int>>("favoriler") ?? new List<int>();
+                                    var favoriMi = favoriler.Contains(urun.UrunNo);
+                                    var kullaniciEmail = Context.Session.GetString("KullaniciEmail");
+                                }
+
+                                @if (string.IsNullOrEmpty(kullaniciEmail))
+                                {
+                                    <a href="/Account/Index" class="btn btn-outline-secondary btn-sm" title="Favori için giriş yapmalısınız">
+                                        <i class="bi bi-heart"></i> Favori
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Favori" asp-action="Toggle" asp-route-id="@urun.UrunNo"
+                                       class="btn btn-outline-secondary btn-sm @(favoriMi ? "active border-warning text-warning" : "")"
+                                       title="Favorilere ekle/çıkar">
+                                        <i class="bi @(favoriMi ? "bi-heart-fill" : "bi-heart")"></i> Favori
+                                    </a>
+                                }
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
-        @* Eğer hiç ürün yoksa mesaj *@
-        <!--if (!Model.Any())
-        {
-        <div class="col-12">
-            <div class="alert alert-warning text-center mt-4">
-                Aradığınız kriterde ürün bulunamadı.
-            </div>
+            }
         </div>
-        }-->
     </div>
-</div>
+}

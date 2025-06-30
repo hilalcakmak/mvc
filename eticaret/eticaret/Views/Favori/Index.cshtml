@@ -1,0 +1,61 @@
+﻿@model List<eticaret.Models.Urun>
+@{
+    ViewData["Title"] = "Favorilerim";
+    var aktifSayfa = ViewBag.AktifSayfa as string ?? "favorilerim";
+}
+<div class="d-flex flex-wrap align-items-center gap-2 mb-4">
+    <a href="/Account/Profile" class="btn btn-outline-primary @((aktifSayfa == "profil" ? "active fw-bold" : ""))">
+        <i class="bi bi-person-lines-fill me-1"></i> Profilim
+    </a>
+    <a href="/Siparis/Siparislerim" class="btn btn-outline-success @((aktifSayfa == "siparisler" ? "active fw-bold" : ""))">
+        <i class="bi bi-box-seam me-1"></i> Siparişlerim
+    </a>
+    <a href="/Favori/Index" class="btn btn-outline-warning @((aktifSayfa == "favoriler" ? "active fw-bold" : ""))">
+        <i class="bi bi-heart-fill me-1"></i> Favorilerim
+    </a>
+</div>
+<h2>Favorilerim</h2>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-info mt-4">Henüz hiç favori ürününüz yok.</div>
+}
+else
+{
+    <div class="row g-4">
+        @foreach (var urun in Model)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <!-- ÜRÜN KARTI KODUN AYNISI! -->
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <img src="@(string.IsNullOrEmpty(urun.ResimUrl) ? Url.Content("~/img/noimage.png") : Url.Content("~/" + urun.ResimUrl))"
+                         class="card-img-top rounded-top-4" alt="@urun.UrunAdi" style="height:220px;object-fit:cover;">
+                    <div class="card-body">
+                        <h6 class="card-title text-truncate mb-2">@urun.UrunAdi</h6>
+                        <div class="mb-1 small text-secondary">@urun.Kategori?.KategoriAdi</div>
+                        <div class="mb-2 fw-bold" style="font-size: 1.1rem;">
+                            @urun.Fiyat.ToString("C")
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark">@urun.Satici</span>
+                            @if (!string.IsNullOrEmpty(urun.Renk))
+                            {
+                                <span class="badge bg-light text-dark">@urun.Renk</span>
+                            }
+                        </div>
+                        @if (!string.IsNullOrEmpty(urun.BedenSecenekleri))
+                        {
+                            <div class="mb-1 small text-muted">Bedenler: @urun.BedenSecenekleri</div>
+                        }
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-controller="Sepet" asp-action="AddToCart" asp-route-id="@urun.UrunNo" class="btn btn-outline-warning btn-sm">Sepete Ekle</a>
+                            <a asp-controller="Favori" asp-action="Toggle" asp-route-id="@urun.UrunNo" class="btn btn-outline-secondary btn-sm">Favorilerden Çıkar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

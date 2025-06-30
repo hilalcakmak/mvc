@@ -1,0 +1,17 @@
+﻿@model eticaret.Models.Kategori
+@{
+    ViewData["Title"] = "Kategori Sil";
+}
+<div class="container mt-4">
+    <h2>Kategori Sil</h2>
+    <div class="alert alert-danger">Emin misiniz? Bu işlem geri alınamaz.</div>
+    <dl class="row">
+        <dt class="col-sm-2">Kategori Adı</dt>
+        <dd class="col-sm-10">@Model.KategoriAdi</dd>
+    </dl>
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="KategoriNo" />
+        <button type="submit" class="btn btn-danger">Sil</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">İptal</a>
+    </form>
+</div>

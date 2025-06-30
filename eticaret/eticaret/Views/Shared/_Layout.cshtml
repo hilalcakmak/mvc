@@ -12,8 +12,28 @@
 
 </head>
 
+@{
+    var isAdmin = Context.Session.GetString("Admin") == "true";
+}
 <body>
-    @await Component.InvokeAsync("KategoriMenu")
+    @if (isAdmin)
+    {
+        <nav class="navbar navbar-dark bg-dark py-3 mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <span class="navbar-brand fw-bold text-warning">Admin Paneli</span>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="/Musteri/Index" class="btn btn-outline-light me-2">Müşteri Paneli</a>
+                    <a href="/Urun/Index" class="btn btn-outline-light me-2">Ürün Paneli</a>
+                    <a href="/Kategori/Index" class="btn btn-outline-light me-4">Kategori Paneli</a>
+                    <a href="/Account/Logout" class="btn btn-danger px-3 fw-bold">Çıkış</a>
+                </div>
+            </div>
+        </nav>
+    }
+    else
+    {
+        @await Component.InvokeAsync("KategoriMenu")
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

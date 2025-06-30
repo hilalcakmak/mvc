@@ -31,6 +31,7 @@
     <None Remove="Views\Account\" />
     <None Remove="Helpers\" />
     <None Remove="Views\Sepet\" />
+    <None Remove="Views\Favori\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -45,6 +46,7 @@
     <Folder Include="Views\Account\" />
     <Folder Include="Helpers\" />
     <Folder Include="Views\Sepet\" />
+    <Folder Include="Views\Favori\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\1.jpeg" />

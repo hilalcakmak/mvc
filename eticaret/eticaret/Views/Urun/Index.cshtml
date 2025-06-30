@@ -141,8 +141,30 @@ else
                                 <a asp-controller="Sepet" asp-action="AddToCart" asp-route-id="@urun.UrunNo" class="btn btn-outline-warning btn-sm">
                                     Sepete Ekle
                                 </a>
+                                @{
+                                    var favoriler = Context.Session.GetObject<List<int>>("favoriler") ?? new List<int>();
+                                    var favoriMi = favoriler.Contains(urun.UrunNo);
+                                    var kullaniciEmail = Context.Session.GetString("KullaniciEmail");
+                                }
 
-                                <button class="btn btn-outline-secondary btn-sm">Favori</button>
+                                @if (string.IsNullOrEmpty(kullaniciEmail))
+                                {
+                                    // Kullanıcı giriş yapmamışsa Account/Index'e yönlendir
+                                    <a href="/Account/Index" class="btn btn-outline-secondary btn-sm" title="Favori için giriş yapmalısınız">
+                                        <i class="bi bi-heart"></i> Favori
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Favori" asp-action="Toggle" asp-route-id="@urun.UrunNo"
+                                       class="btn btn-outline-secondary btn-sm @(favoriMi ? "active border-warning text-warning" : "")"
+                                       title="Favorilere ekle/çıkar">
+                                        <i class="bi @(favoriMi ? "bi-heart-fill" : "bi-heart")"></i> Favori
+                                    </a>
+                                }
+
+
+
                             </div>
                         </div>
                     </div>

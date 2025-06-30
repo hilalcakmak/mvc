@@ -1,51 +1,73 @@
 ﻿<Properties StartupConfiguration="{327F8C0B-D774-46BB-94F3-64492EE99C94}|Default">
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.eticaret PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="eticaret/Views/Shared/Components/KategoriMenu/Default.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="eticaret/Views/Home/Index.cshtml">
     <Files>
-      <File FileName="eticaret/Controllers/MusteriController.cs" />
-      <File FileName="eticaret/Models/SiparisDetay.cs" />
-      <File FileName="eticaret/Models/Musteri.cs" />
+      <File FileName="eticaret/Controllers/MusteriController.cs" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Shared/_Layout.cshtml" Line="30" Column="23" />
+      <File FileName="eticaret/Models/SiparisDetay.cs" Line="42" Column="1" />
+      <File FileName="eticaret/Models/Musteri.cs" Line="1" Column="1" />
       <File FileName="eticaret/Views/Musteri/Edit.cshtml" />
-      <File FileName="eticaret/Views/Urun/Index.cshtml" />
+      <File FileName="eticaret/Views/Urun/Index.cshtml" Line="165" Column="1" />
       <File FileName="eticaret/Controllers/UrunController.cs" />
       <File FileName="eticaret/Views/Urun/Create.cshtml" />
-      <File FileName="eticaret/Models/Urun.cs" />
+      <File FileName="eticaret/Models/Urun.cs" Line="1" Column="1" />
       <File FileName="eticaret/appsettings.json" />
-      <File FileName="eticaret/Models/Siparis.cs" />
-      <File FileName="eticaret/Program.cs" />
+      <File FileName="eticaret/Models/Siparis.cs" Line="1" Column="1" />
+      <File FileName="eticaret/Program.cs" Line="1" Column="1" />
       <File FileName="eticaret/Views/Siparis/Index.cshtml" />
-      <File FileName="eticaret/Controllers/SiparisController.cs" />
+      <File FileName="eticaret/Controllers/SiparisController.cs" Line="60" Column="25" />
       <File FileName="eticaret/Views/SiparisDetay/Index.cshtml" />
-      <File FileName="eticaret/Controllers/SiparisDetayController.cs" />
-      <File FileName="eticaret/Views/Musteri/Index.cshtml" />
-      <File FileName="eticaret/Views/_ViewImports.cshtml" />
-      <File FileName="eticaret/Views/_ViewStart.cshtml" />
+      <File FileName="eticaret/Controllers/SiparisDetayController.cs" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Musteri/Index.cshtml" Line="1" Column="1" />
+      <File FileName="eticaret/Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="eticaret/Views/_ViewStart.cshtml" Line="1" Column="1" />
       <File FileName="eticaret/Controllers/KategoriController.cs" />
-      <File FileName="eticaret/Controllers/HomeController.cs" />
-      <File FileName="eticaret/Views/Shared/_Layout.cshtml" />
-      <File FileName="eticaret/Views/Shared/ViewComponent.cs" />
-      <File FileName="eticaret/Views/Shared/Components/KategoriMenu/Default.cshtml" Line="83" Column="12" />
+      <File FileName="eticaret/Controllers/HomeController.cs" Line="57" Column="1" />
+      <File FileName="eticaret/Views/Shared/ViewComponent.cs" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Shared/Components/KategoriMenu/Default.cshtml" Line="80" Column="1" />
       <File FileName="eticaret/wwwroot/css/site.css" />
-      <File FileName="eticaret/Views/Home/Index.cshtml" />
+      <File FileName="eticaret/Views/Home/Index.cshtml" Line="29" Column="30" />
+      <File FileName="eticaret/Data/AppDbContext.cs" Line="22" Column="1" />
+      <File FileName="eticaret/Views/Home/Privacy.cshtml" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Shared/Error.cshtml" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
+      <File FileName="eticaret/Controllers/AccountController.cs" Line="84" Column="14" />
+      <File FileName="eticaret/Views/Account/Index.cshtml" Line="22" Column="1" />
+      <File FileName="eticaret/Views/Account/Register.cshtml" Line="58" Column="1" />
+      <File FileName="eticaret/Views/Account/Login.cshtml" Line="26" Column="1" />
+      <File FileName="eticaret/Views/Account/AdminLogin.cshtml" Line="22" Column="10" />
+      <File FileName="eticaret/Views/Shared/_Layout.cshtml.css" Line="1" Column="1" />
+      <File FileName="eticaret/Views/Account/Profile.cshtml" Line="17" Column="27" />
+      <File FileName="eticaret/Controllers/FavoriController.cs" Line="30" Column="6" />
+      <File FileName="eticaret/Helpers/SessionExtensions.cs" Line="17" Column="1" />
+      <File FileName="eticaret/Views/Siparis/Siparislerim.cshtml" Line="17" Column="7" />
+      <File FileName="eticaret/Views/Favori/Index.cshtml" Line="60" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="eticaret">
-            <Node name="eticaret" expanded="True">
+            <Node name="eticaret">
               <Node name="Controllers" expanded="True" />
-              <Node name="Views" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views">
+                <Node name="Account" expanded="True" />
+                <Node name="Favori" expanded="True" />
+                <Node name="Home">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Musteri" expanded="True" />
+                <Node name="Sepet" expanded="True" />
                 <Node name="Shared" expanded="True">
                   <Node name="Components" expanded="True">
-                    <Node name="KategoriMenu" expanded="True">
-                      <Node name="Default.cshtml" selected="True" />
-                    </Node>
+                    <Node name="KategoriMenu" expanded="True" />
                   </Node>
                 </Node>
+                <Node name="Siparis" expanded="True" />
+                <Node name="SiparisDetay" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
@@ -56,11 +78,11 @@
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

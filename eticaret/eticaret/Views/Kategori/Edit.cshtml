@@ -1,0 +1,17 @@
+﻿@model eticaret.Models.Kategori
+@{
+    ViewData["Title"] = "Kategori Düzenle";
+}
+<div class="container mt-4">
+    <h2>Kategori Düzenle</h2>
+    <form asp-action="Edit" method="post" class="mt-3">
+        <input type="hidden" asp-for="KategoriNo" />
+        <div class="mb-3">
+            <label asp-for="KategoriAdi" class="form-label"></label>
+            <input asp-for="KategoriAdi" class="form-control" />
+            <span asp-validation-for="KategoriAdi" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">İptal</a>
+    </form>
+</div>
